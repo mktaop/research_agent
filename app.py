@@ -14,7 +14,7 @@ api_key = os.environ.get("GOOGLE_API_KEY")
 model_id = "gemini-3-flash-preview"
 
 subject = st.text_input("What subject do you want market analysis for? And what calendar years?", 
-                       placeholder="e.g., Plant-based milk in North America 2024-2026")
+                       placeholder="e.g., Electric Vehicle Outlook 2026")
 
 if st.button("Generate Analysis") and subject:
     if not api_key:
