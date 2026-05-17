@@ -11,6 +11,7 @@ st.title("📊 AI Market Research Agent")
 st.subheader("Powered by Gemini & Google Search")
 
 api_key = os.environ.get("GOOGLE_API_KEY")
+model_id = "gemini-3-flash-preview"
 
 subject = st.text_input("What subject do you want market analysis for? And what calendar years?", 
                        placeholder="e.g., Plant-based milk in North America 2024-2026")
@@ -34,7 +35,7 @@ if st.button("Generate Analysis") and subject:
             """
             
             response = client.models.generate_content(
-                model="gemini-3-flash-preview", 
+                model=model_id, 
                 contents=prompt_search,
                 config=types.GenerateContentConfig(tools=[search_tool],
                                                    thinking_config=types.ThinkingConfig(thinking_level="high",
@@ -69,7 +70,7 @@ if st.button("Generate Analysis") and subject:
             """
             
             chart_response = client.models.generate_content(
-                model="gemini-3-flash-preview",
+                model=model_id,
                 contents=prompt_charts,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
@@ -104,7 +105,7 @@ if st.button("Generate Analysis") and subject:
         """
         
         report_response = client.models.generate_content(
-            model="gemini-3-flash-preview",
+            model=model_id,
             contents=prompt_report,
             config=types.GenerateContentConfig(
                 thinking_config=types.ThinkingConfig(thinking_level="high")),
