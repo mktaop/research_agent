@@ -6,7 +6,6 @@ from pydantic import BaseModel
 from typing import List
 
 
-# --- Configuration & UI Setup ---
 st.set_page_config(page_title="AI Market Research Agent", layout="wide")
 st.title("📊 AI Market Research Agent")
 st.subheader("Powered by Gemini & Google Search")
